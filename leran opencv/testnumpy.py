@@ -8,11 +8,16 @@ import cv2
 # print(c)
 
 img = np.zeros((480,640,3),np.uint8)
-count = 0
-while count < 200:
-    img[count,100,0] = 255
-    count = count + 1
-print(img[100,100])
+# count = 0
+# while count < 200:
+#     img[count,100,0] = 255
+#     count = count + 1
+# print(img[100,100])
+
+
+roi = img[100:200,100:200]
+roi[:,:] = [0,0,255] 
+
 cv2.imshow('img',img)
 key = cv2.waitKey(0)
 if key & 0xFF == ord('q'):
