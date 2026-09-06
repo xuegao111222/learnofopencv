@@ -20,7 +20,7 @@ while True:
     g = cv2.getTrackbarPos('G','trackbar')
     b = cv2.getTrackbarPos('B','trackbar')
     #改变背景图片颜色
-    img[:]=[b,g,r] #因为上色是b g r
+    img[:]=[b,g,r] #因为opencv认的是b g r  人认r g b
 
     key = cv2.waitKey(10)
     if key & 0xFF == ord('q'):
