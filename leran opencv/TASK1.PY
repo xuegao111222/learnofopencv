@@ -61,5 +61,7 @@ while True:
         print("关闭绘图")
     elif key & 0xFF == ord('q'):
         break
-
+    elif key & 0xFF == ord('d'):
+        img[:] = 0
+        print('清除')
 cv2.destroyAllWindows()
