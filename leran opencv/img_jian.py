@@ -14,10 +14,12 @@ cv2.imshow('orig',img)
 result = cv2.add(img,img2)
 
 cv2.imshow('result',result)
-
+img_1 = cv2.subtract(img,img2)
+cv2.imshow('img_1',img_1)
 while True:
 
     key = cv2.waitKey(0)
     if key & 0xff == ord('q'):
         break
 cv2.destroyAllWindows()
+#  图像的乘法和除法 multiply(A,B)  和  divide(A,B)   亮的更多或者变得更暗
