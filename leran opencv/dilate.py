@@ -3,7 +3,7 @@ import numpy as np
 
 
 
-img = cv2.imread("d:\\shenfen\\test3.png")
+img = cv2.imread("d:\\shenfen\\test2.png")
 #img1= cv2.imread("d:\\shenfen\\test2.png")
 # img1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(19,19))
@@ -37,8 +37,10 @@ cv2.imshow('img',img)
 
 #顶帽运算  原始图像-开运算
 dst2 = cv2.morphologyEx(img,cv2.MORPH_TOPHAT,kernel)
+#黑帽运算  原图 - 闭运算  求大的区域里小的噪点  就是将噪点取出来
+dst3 = cv2.morphologyEx(img,cv2.MORPH_BLACKHAT,kernel)
 #cv2.imshow('dst1',dst1)
 #cv2.imshow('dst',dst)
 ##cv2.imshow('dst1',dst1)
-cv2.imshow('dst2',dst2)
+cv2.imshow('dst2',dst3)
 cv2.waitKey(0)
