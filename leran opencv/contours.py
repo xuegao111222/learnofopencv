@@ -28,7 +28,7 @@ print(binary.shape)
 contours, hierarchy = cv2.findContours(binary,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 
 
-#绘制轮廓
+#绘制轮廓  多边形逼近
 cnt = contours[0]                                # 取第0个轮廓
 e = 20                                           # 近似精度（epsilon）
 approx = cv2.approxPolyDP(cnt, e, True)          # 多边形近似，结果赋给 approx
@@ -36,6 +36,11 @@ drawShape(img, approx)                           # 画近似多边形
 # #轮廓面积
 # area = cv2.contourArea(contours[0])
 # print("area=%d"%(area))
+
+
+#凸包
+hull = cv2.convexHull(cnt)
+drawShape(img,hull)
 
 
 # #计算周长
