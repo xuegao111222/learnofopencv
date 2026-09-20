@@ -29,10 +29,10 @@ contours, hierarchy = cv2.findContours(binary,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIM
 
 
 #绘制轮廓
-approx = cv2.drawContours(img,contours,0,(0,0,255),2)
-drawShape(img,approx)
-e = 20# 第二个参数   写精度
-cv2.approxPolyDP(contours[0],e,True)
+cnt = contours[0]                                # 取第0个轮廓
+e = 20                                           # 近似精度（epsilon）
+approx = cv2.approxPolyDP(cnt, e, True)          # 多边形近似，结果赋给 approx
+drawShape(img, approx)                           # 画近似多边形
 # #轮廓面积
 # area = cv2.contourArea(contours[0])
 # print("area=%d"%(area))
